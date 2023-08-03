@@ -14,9 +14,11 @@ function renderColors() {
         //use that variable to pass the color and the text into the html feed
         const hexValue = color.hex.value;
         htmlFeed += `
-            <div class="color" style="background-color:${hexValue};"></div>
-            <div class="text">${hexValue}</div>
-        `
+            <section>
+                <div class="color" style="background-color:${hexValue};"></div>
+                <div class="text">${hexValue}</div>
+            </section>
+            `
     }
     document.getElementById('main-container').innerHTML = htmlFeed;
 }
