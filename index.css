@@ -1,7 +1,7 @@
 /*
 Author: Cassie Lewis
 https://clewisdev.com
-Date: 
+Date: August 2023
 */
 
 /****** VARIABLES ******/
@@ -32,3 +32,35 @@ Date:
 }
 
 /******* GLOBAL STYLES *******/
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: black;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+
+}
+
+header {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+main {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.color {
+    width: 250px;
+    height: 100px;
+    padding: 2rem;
+}
+
+.text {
+    padding: 1rem;
+}

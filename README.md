@@ -35,6 +35,9 @@
 - Stretch goal
   - click on hex values and color to copy it to the clipboard
 
+- Personal stretch goal
+  - light/dark mode toggle
+
 - [Figma file](https://www.figma.com/file/5Si9YM6QizrS5w2emKomrB/Color-Scheme-Generator-(Copy)?type=design&node-id=0-1&mode=design&t=sE6IeTcjq7kQf1g3-0)
 
  ### Screenshot
