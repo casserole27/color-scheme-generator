@@ -4,26 +4,23 @@ https://clewisdev.com
 Date: August 2023
 */
 
-/****** VARIABLES ******/
+/*====== VARIABLES ======*/
 
 :root {
     
     /*COLORS*/
+    --bg: #fff;
+    --bg-body: #D1D5DB;
+    --border-color: #D1D5DB;
+    --text-color: #2B283A;
   
     
     /*BORDER RADIUS*/
-    --br-soft: 1rem;
-    --br-round: 50%;
-    
-    /*FONT SIZES*/
-    --fs-xs: 1rem;
-    --fs-s: 1.25rem;
-    --fs-m: 1.5rem;
-    --fs-l: 2.25rem;
-    --fs-title: 2.5rem;
+    --br-small: 5px;
 }
 
-/****** MARGIN AND PADDING RESET ******/
+
+/*====== MARGIN AND PADDING RESET ======*/
 
 * {
     margin: 0;
@@ -31,36 +28,130 @@ Date: August 2023
     box-sizing: border-box;
 }
 
-/******* GLOBAL STYLES *******/
+
+/*====== GLOBAL STYLES ======*/
 
 body {
     font-family: 'Inter', sans-serif;
+    font-size: 1rem;
     color: black;
-    padding: 2rem;
+    background-color: var(--bg-body);
+
     display: flex;
     justify-content: center;
-
 }
 
-header {
-    display: flex;
-    gap: 1rem;
-    padding: 1rem;
+button,
+header,
+main,
+.color-schemes-select,
+.text {
+    background-color: var(--bg);
 }
 
+button,
+.color-schemes-select {
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+button {
+    width: 100%;
+    padding: .75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--br-small);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--bg-body);
+}
+
+header,
 main {
-    padding: 2rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;   
     align-items: center;
 }
 
+header {
+    padding: 1rem;
+    gap: 1rem;
+}
+
+select {
+    /* Remove default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* Add custom arrow */
+    background-image: url(assets/selector.png);
+    background-repeat: no-repeat;
+    background-position: 96%;
+    padding: .5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/*====== MAIN CONTAINER ======*/
+
+.color-scheme-container {
+    margin-top: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--br-small);
+}
+
+
+/*====== INPUT STYLING =======*/
+
+.input-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.seed-color {
+    width: 65px;
+    height: 42px;
+    padding: .1rem;
+    cursor: pointer;
+}
+
+/*====== COLORS CONTAINER STYLING ======*/
+
 .color {
     width: 250px;
-    height: 100px;
-    padding: 2rem;
+    height: 75px;
 }
 
 .text {
+    color: var(--text-color);
+    text-align: center;;
     padding: 1rem;
+}
+
+
+/*====== MEDIA QUERIES ======*/
+
+
+@media (min-width: 650px) {
+    header,
+    main {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    select {
+        width: 325px;
+    }
+
+    .color {
+        width: 125px;
+        height: 550px;
+    }
+
+ 
 }

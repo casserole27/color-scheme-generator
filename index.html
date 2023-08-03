@@ -32,18 +32,19 @@
     <div class="color-scheme-container">
 
         <header>
-            <input type="color" id="seed-color" value="#A626D3" aria-label="seed color">
+            <div class="input-container">
+                <input type="color" class="seed-color" id="seed-color" value="#A626D3" aria-label="seed color">
 
-            <select name="color-schemes" id="color-schemes-select">
-                <option value="monochrome">Monochrome</option>
-                <option value="monochrome-dark">Monochrome-Dark</option>
-                <option value="monochrome-light">Monochrome-Light</option>
-                <option value="analogic">Analogic</option>
-                <option value="complement">Complement</option>
-                <option value="analogic-complement">Analogic-Complement</option>
-                <option value="triad">Triad</option>
-                <!-- <option value="quad">Quad</option> -->
-            </select>
+                <select name="color-schemes" class="color-schemes-select" id="color-schemes-select">
+                    <option value="monochrome">Monochrome</option>
+                    <option value="monochrome-dark">Monochrome-Dark</option>
+                    <option value="monochrome-light">Monochrome-Light</option>
+                    <option value="analogic">Analogic</option>
+                    <option value="complement">Complement</option>
+                    <option value="analogic-complement">Analogic-Complement</option>
+                    <option value="triad">Triad</option>
+                </select>
+            </div>
             
             <button class="schemes-btn" id="schemes-btn">Get color scheme</button>
         </header>
