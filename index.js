@@ -1,7 +1,7 @@
 /****** VARIABLES ******/
 
 let colorsArray = [];
-
+const getSchemesBtn = document.getElementById('schemes-btn');
 
 /****** FUNCTIONS ******/
 
@@ -13,10 +13,17 @@ function renderColors() {
         //for each color object, store the hex value in a variable
         //use that variable to pass the color and the text into the html feed
         const hexValue = color.hex.value;
+        const colorName = color.name.value;
         htmlFeed += `
             <section>
-                <div class="color" style="background-color:${hexValue};"></div>
-                <div class="text">${hexValue}</div>
+                <div class="color" style="background-color:${hexValue};" data-hex=${hexValue}></div>
+                    <div class="color-text-container">
+                        <div class="text-container">
+                            <button class="copy-btn" id="copy" aria-label="copy hex code" data-hex=${hexValue}></button>
+                            <p class="text">${hexValue}</p>
+                        </div>
+                        <p class="color-name" id="color-name">${colorName}</p>
+                    </div>
             </section>
             `
     }
@@ -49,8 +56,29 @@ document.getElementById('schemes-btn').addEventListener('click', () => {
     fetch(url)
     .then(response => response.json())
     .then(data => {
+        // console.log(data.colors)
         //assign the colors array of objects from the API to colorsArray
         colorsArray = data.colors  
+        // hexArray = data.colors.hex
+        console.log(colorsArray)
+        // console.log(hexArray)
         renderColors()   
     })
-})   
+})
+
+document.addEventListener('click', e => {
+    const hexCopyValue = e.target.dataset.hex
+    if (hexCopyValue) {
+        console.log(hexCopyValue)
+        navigator.clipboard.writeText(hexCopyValue)
+        //copy to clipboard alert  
+        getSchemesBtn.textContent = 'copied to clipboard'
+        getSchemesBtn.style.backgroundColor = 'gold'
+        setTimeout(() => {
+            getSchemesBtn.textContent = 'Get color scheme'
+            getSchemesBtn.style.backgroundColor = 'white'
+        }, 3000)
+     
+      
+    }
+})
