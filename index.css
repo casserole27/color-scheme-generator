@@ -13,6 +13,8 @@ Date: August 2023
     --bg-body: #D1D5DB;
     --border-color: gray;
     --text-color: #222222;
+    --element-focus: blue;
+    --color-focus: #000;
   
     
     /*BORDER RADIUS*/
@@ -55,11 +57,18 @@ select {
     font-size: 1rem;
     font-weight: 700;
     color: var(--text-color);
+    transition: 0.3s ease;
 }
 
 button {
     cursor: pointer;
-    transition: 0.3s ease;
+}
+
+button:focus,
+select:focus {
+    border: 3px solid var(--element-focus);
+    border-radius: 5px;
+    outline: none       ;
 }
 
 button:active {
@@ -144,6 +153,13 @@ select {
     width: 250px;
     height: 100px;
     cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.color:focus {
+    border: 3px solid var(--color-focus);
+    border-radius: 5px;
+    outline: none;
 }
 
 .copy-btn {

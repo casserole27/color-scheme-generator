@@ -16,7 +16,7 @@ function renderColors() {
         const colorName = color.name.value;
         htmlFeed += `
             <section>
-                <div class="color" style="background-color:${hexValue};" data-hex=${hexValue}></div>
+                <div class="color" style="background-color:${hexValue};" tabindex = "0" data-hex=${hexValue}></div>
                     <div class="color-text-container">
                         <div class="text-container">
                             <button class="copy-btn" id="copy" aria-label="copy hex code" data-hex=${hexValue}></button>
@@ -30,7 +30,28 @@ function renderColors() {
     document.getElementById('main-container').innerHTML = htmlFeed;
 }
 
+function copyHex(e) {
+    const hexCopyValue = e.target.dataset.hex
+    if (e.key === 'Enter' || e.type === 'click') {
+        if (hexCopyValue) {
+            console.log(hexCopyValue)
+            navigator.clipboard.writeText(hexCopyValue)
+            //copy to clipboard alert  
+            getSchemesBtn.textContent = 'copied to clipboard'
+            getSchemesBtn.style.backgroundColor = 'gold'
+            setTimeout(() => {
+                getSchemesBtn.textContent = 'Get color scheme'
+                getSchemesBtn.style.backgroundColor = 'white'
+            }, 3000)
+
+        }
+    }    
+}
+
 /****** EVENT LISTENERS ******/
+
+document.addEventListener('click', copyHex)
+document.addEventListener('keypress', copyHex)
 
 document.getElementById('schemes-btn').addEventListener('click', () => {
     //store user input in variables
@@ -66,19 +87,3 @@ document.getElementById('schemes-btn').addEventListener('click', () => {
     })
 })
 
-document.addEventListener('click', e => {
-    const hexCopyValue = e.target.dataset.hex
-    if (hexCopyValue) {
-        console.log(hexCopyValue)
-        navigator.clipboard.writeText(hexCopyValue)
-        //copy to clipboard alert  
-        getSchemesBtn.textContent = 'copied to clipboard'
-        getSchemesBtn.style.backgroundColor = 'gold'
-        setTimeout(() => {
-            getSchemesBtn.textContent = 'Get color scheme'
-            getSchemesBtn.style.backgroundColor = 'white'
-        }, 3000)
-     
-      
-    }
-})
