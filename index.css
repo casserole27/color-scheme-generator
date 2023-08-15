@@ -36,7 +36,7 @@ Date: August 2023
 body {
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
-    color: black;
+    color: var(--text-color);
     background-color: var(--bg-body);
 
     display: flex;
@@ -45,7 +45,7 @@ body {
 
 header,
 main,
-.color-schemes-select,
+select,
 .schemes-btn,
 .text {
     background-color: var(--bg);
@@ -54,21 +54,24 @@ main,
 button,
 select {
     font-family: inherit;
-    font-size: 1rem;
+    font-size: .75rem;
     font-weight: 700;
     color: var(--text-color);
     transition: 0.3s ease;
 }
 
+input,
+select,
 button {
     cursor: pointer;
 }
 
+input:focus,
 button:focus,
 select:focus {
     border: 3px solid var(--element-focus);
     border-radius: 5px;
-    outline: none       ;
+    outline: none;
 }
 
 button:active {
@@ -80,7 +83,6 @@ button:active {
     padding: .75rem;
     border: 2px solid var(--border-color);
     border-radius: var(--br-small);
-    cursor: pointer;
 }
 
 .schemes-btn:hover {
@@ -111,7 +113,6 @@ select {
     padding: .75rem;
     border: 2px solid var(--border-color);
     border-radius: 5px;
-    cursor: pointer;
 }
 
 
@@ -136,7 +137,6 @@ select {
     width: 65px;
     height: 42px;
     padding: .1rem;
-    cursor: pointer;
 }
 
 /*====== COLORS CONTAINER STYLING ======*/
@@ -170,7 +170,6 @@ select {
     width: 40px;
     height: 40px;
     border: none;
-    cursor: pointer;
 }
 
 .copy-btn:hover {
@@ -208,6 +207,11 @@ select {
     main {
         flex-direction: row;
         justify-content: center;
+    }
+
+    button,
+    select {
+        font-size: 1rem;
     }
 
     select {
