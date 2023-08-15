@@ -28,13 +28,10 @@
  -->
 
  <body>
-
     <div class="color-scheme-container">
-
         <header>
             <div class="input-container">
                 <input type="color" class="seed-color" id="seed-color" value="#A626D3" aria-label="seed color">
-
                 <select name="color-schemes" class="color-schemes-select" id="color-schemes-select">
                     <option value="monochrome">Monochrome</option>
                     <option value="monochrome-dark">Monochrome-Dark</option>
@@ -44,15 +41,32 @@
                     <option value="analogic-complement">Analogic-Complement</option>
                     <option value="triad">Triad</option>
                 </select>
-            </div>
-            
+            </div>        
             <button class="schemes-btn" id="schemes-btn">Get color scheme</button>
+            <!--dark/light toggle-->
+            <input 
+                class="toggle"
+                type="checkbox" 
+                id="darkmode-toggle">
+            <label 
+                for="darkmode-toggle" 
+                aria-label="light and dark mode toggle"
+                tabindex="0"
+                id="darkmode-label">
+                <!--svgrepo.com-->
+                <!--add code and classes-->
+                <svg class="sun" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="Environment / Sun">
+                    <path id="Vector" d="M12 4V2M12 20V22M6.41421 6.41421L5 5M17.728 17.728L19.1422 19.1422M4 12H2M20 12H22M17.7285 6.41421L19.1427 5M6.4147 17.728L5.00049 19.1422M12 17C9.23858 17 7 14.7614 7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12C17 14.7614 14.7614 17 12 17Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                </svg>
+                <svg class="moon" width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 17C10.952 18.6176 16.6829 8.75775 11 3C16.0007 3.13144 20 7.11149 20 12C20 16.9715 16.1188 21 11 21C7.77111 21 4.65938 19.4319 3 17Z" stroke="#000000" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+            </label>
+            <!--end dark/light toggle-->
         </header>
-
-        <main id="main-container"></main>       
-        
+        <main id="main-container"></main>               
     </div>
- 
-<script src="index.js"></script>
-
+ <script src="index.js"></script>
 </body>
