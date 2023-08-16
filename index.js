@@ -69,7 +69,6 @@ function renderColors() {
 
 //copy hex values to clipboard using click or enter button
 function copyHex(e) {
-    console.log('button clicked!')
     const hexCopyValue = e.target.dataset.hex
     if (e.key === 'Enter' || e.type === 'click') {
         if (hexCopyValue) {
