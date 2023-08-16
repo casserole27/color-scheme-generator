@@ -293,7 +293,7 @@ input:checked + label:after { /*select and style the first label:after element t
 
 @media (min-width: 768px) {
     header {
-        padding: 1rem .25rem;
+        padding: 1rem .5rem;
     }
 
     header,

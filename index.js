@@ -1,7 +1,11 @@
+// import { darkModeToggle, loadDarkModeSetting, renderDarkMode } from './darkmode.js'
+
 /****** VARIABLES ******/
 
 let colorsArray = [];
 const getSchemesBtn = document.getElementById('schemes-btn');
+const darkModeKey = "darkMode";
+const darkModeToggle = document.getElementById('darkmode-toggle');
 
 /****** FUNCTIONS ******/
 
@@ -82,38 +86,50 @@ function copyHex(e) {
     }    
 };
 
-//variable for lightmode checkbox input
-const darkModeToggle = document.getElementById('darkmode-toggle');
+//light and dark mode toggle logic
+
+function enableDarkMode() {
+    document.body.classList.add('darkmode');
+    darkModeToggle.checked = true;
+};    
+
+function disableDarkMode() {
+    document.body.classList.remove('darkmode');
+    darkModeToggle.checked = false;
+};
+// Function to save the light mode setting to local storage
+const saveDarkModeSetting = (isDarkMode) => localStorage.setItem(darkModeKey, isDarkMode);
+
+function loadDarkModeSetting() {
+    const isDarkMode = localStorage.getItem(darkModeKey) === "true";
+    isDarkMode ? enableDarkMode() : disableDarkMode();
+}
 
 function renderDarkMode() {
-     /*if body contains dark mode class,
-     remove the class and toggle is checked, 
-     else add darkmode class to the body
-    and toggle is in checked state.
-    Toggle is moved / changed via CSS :checked*/
     if (document.body.classList.contains('darkmode')) {
-        document.body.classList.remove('darkmode');
-        darkModeToggle.checked = false;
+        disableDarkMode()
+        saveDarkModeSetting(false);
     } else {
-        document.body.classList.add('darkmode');
-        darkModeToggle.checked = true;
-    };  
+        enableDarkMode()
+        saveDarkModeSetting(true);
+    };
 };
 
-
-//event listener for toggle click
-darkModeToggle.addEventListener('click', renderDarkMode);
-
-//enable toggle key enter functionality with keypress event listener
-document.getElementById('darkmode-label').addEventListener('keypress', e => {
-    if(e.key === "Enter") {
-        renderDarkMode()
-    };
-});
 
 /****** EVENT LISTENERS ******/
 
 document.getElementById('schemes-btn').addEventListener('click', getColors);
 document.addEventListener('click', copyHex);
 document.addEventListener('keypress', copyHex);
+
+darkModeToggle.addEventListener('click', renderDarkMode);
+//add toggle to keyboard focus
+document.getElementById('darkmode-label').addEventListener('keypress', e => {
+    if(e.key === "Enter") {
+        renderDarkMode()
+    };
+});
+
+// Call the loadLightModeSetting function to load the initial light mode setting
+loadDarkModeSetting();
 
