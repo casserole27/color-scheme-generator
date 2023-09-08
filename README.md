@@ -28,7 +28,7 @@
   ```html
   <input type="color">
   ```
-  - Choose color scheme mode in a <select> box, use documentation to see which schemes are available
+  - Choose color scheme mode in a select tag box, use documentation to see which schemes are available
   - Clicking button makes request to The Color API to get a color scheme
   - Display scheme colors and hex values on the page
 
